@@ -1,0 +1,7 @@
+---
+- hosts: all
+
+  tasks:
+    - name: Install the vitamin-r2
+      homebrew_cask: name=vitamin-r state=present
+      when: "ansible_os_family == 'Darwin'"

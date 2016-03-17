@@ -1,0 +1,12 @@
+---
+- hosts: all
+  vars:
+    macvim_url: https://github.com/macvim-dev/macvim/releases/download/snapshot-99/MacVim.dmg
+    creates: MacVim.app
+
+  tasks:
+    - name: install macvim 10.8(Mountain Lion), 10.9(Mavericks), 10.10(Yosemite), and 10.11(El Capitan)
+      mac_pkg: pkg_type=app archive_type=dmg url={{macvim_url}}
+               archive_path={{creates}} creates={{creates}}
+      sudo: yes
+      when: mac_major_minor_version == "10.11" or mac_major_minor_version == "10.10" or mac_major_minor_version == "10.9" or mac_major_minor_version == "10.8"

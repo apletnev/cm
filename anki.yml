@@ -1,0 +1,9 @@
+---
+- hosts: all
+
+  tasks:
+    - name: install chrome stable
+      mac_pkg: pkg_type=app
+               url=http://ankisrs.net/download/mirror/anki-2.0.33.dmg
+               archive_type=dmg archive_path='Anki.app'
+      sudo: yes

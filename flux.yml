@@ -1,0 +1,9 @@
+---
+- hosts: all
+
+  tasks:
+    - name: install flux
+      mac_pkg: pkg_type=app
+               url=https://justgetflux.com/mac/Flux.zip
+               archive_type=zip archive_path='Flux.app'
+      sudo: yes
